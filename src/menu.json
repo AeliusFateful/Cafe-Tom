@@ -1,0 +1,68 @@
+{
+  "_source": "Цены и граммовка: Яндекс Карты, меню «Томь» (ул. 40 лет Октября, 1), обновлено 4 октября. Описания написаны по составу из карточки и по фото; сверить с кухней.",
+  "categories": [
+    {
+      "id": "hot",
+      "name": "Горячее",
+      "items": [
+        { "id": "plov", "name": "Плов", "price": 400, "weight": "300 г", "desc": "Плов с говядиной и морковью.", "img": "dish-plov", "pos": "28% 50%" },
+        { "id": "lagman-zharenyy", "name": "Лагман жареный с говядиной", "price": 400, "weight": "300 г", "desc": "Лапша, обжаренная с говядиной и овощами.", "img": "dish-lagman-zharenyy" },
+        { "id": "lagman-zharenyy-kurica", "name": "Жареный лагман с курицей", "price": 330, "weight": "300 г", "desc": "Лапша, обжаренная с курицей и овощами.", "img": "dish-lagman-kurica" },
+        { "id": "lagman-slivochnyy", "name": "Сливочный лагман с курицей", "price": 380, "weight": "300 г", "desc": "Лапша в сливочном соусе с курицей, грибами и сыром.", "img": "dish-lagman-slivochnyy" },
+        { "id": "kazan-kebab", "name": "Казан-кебаб", "price": 520, "weight": "260 г", "desc": "Куриные голени с картофелем по-деревенски и луком. Мясо нежное, картофель мягкий, подаётся горячим.", "img": null },
+        { "id": "lyulya", "name": "Люля-кебаб", "price": 490, "weight": "300 г", "desc": "", "img": null },
+        { "id": "manty", "name": "Манты", "price": 88, "weight": "1 шт., 65 г", "desc": "", "img": "dish-manty" },
+        { "id": "manty-zharenye", "name": "Манты жареные", "price": 90, "weight": "1 шт., 65 г", "desc": "", "img": "dish-manty-zharenye" },
+        { "id": "dolma", "name": "Долма", "price": 80, "weight": "65 г", "desc": "Виноградные листья с рисом и говядиной.", "img": null }
+      ]
+    },
+    {
+      "id": "soups",
+      "name": "Супы",
+      "items": [
+        { "id": "shurpa", "name": "Шурпа", "price": 400, "weight": "300 г", "desc": "Суп с говядиной на кости, картофелем и морковью.", "img": "dish-shurpa" },
+        { "id": "lagman", "name": "Лагман", "price": 380, "weight": "300 г", "desc": "Суп с говядиной, овощами и лапшой.", "img": "dish-lagman-sup" },
+        { "id": "chuchvara", "name": "Чучвара", "price": 380, "weight": "300 г", "desc": "Пельмени в бульоне, подаются со сметаной.", "img": "dish-chuchvara" },
+        { "id": "borsch", "name": "Борщ", "price": 360, "weight": "300 г", "desc": "Свекольный суп на говяжьем бульоне с картофелем, капустой и морковью. Подаётся со сметаной и зеленью.", "img": "dish-borsch" },
+        { "id": "golubtsy", "name": "Голубцы в бульоне", "price": 360, "weight": "350 г", "desc": "Голубцы с рисом и говядиной в бульоне.", "img": "dish-golubtsy" }
+      ]
+    },
+    {
+      "id": "salads",
+      "name": "Салаты",
+      "items": [
+        { "id": "nargiz", "name": "Наргиз", "price": 189, "weight": "150 г", "desc": "Салатные листья, копчёная курица, сухарики и помидоры.", "img": "dish-nargiz" },
+        { "id": "ovoshnaya", "name": "Овощная нарезка", "price": 180, "weight": "150 г", "desc": "Огурцы, помидоры и лук.", "img": "dish-ovoshnaya" },
+        { "id": "olivie", "name": "Оливье", "price": 180, "weight": "150 г", "desc": "", "img": "dish-olivie" },
+        { "id": "svezhest", "name": "Свежесть", "price": 150, "weight": "150 г", "desc": "Огурцы и помидоры с зеленью.", "img": "dish-svezhest" },
+        { "id": "grecheskiy", "name": "Греческий", "price": 225, "weight": "150 г", "desc": "", "img": null }
+      ]
+    },
+    {
+      "id": "bakery",
+      "name": "Выпечка",
+      "items": [
+        { "id": "samsa", "name": "Самса", "price": 120, "weight": "150 г", "desc": "Самса с говядиной.", "img": null },
+        { "id": "kurnik", "name": "Курник", "price": 120, "weight": "150 г", "desc": "Пирог с курицей и картофелем.", "img": null },
+        { "id": "lepeshka", "name": "Лепёшка", "price": 70, "weight": "250 г", "desc": "", "img": null }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Десерты",
+      "items": [
+        { "id": "pakhlava", "name": "Пахлава", "price": 160, "weight": "100 г", "desc": "", "img": null },
+        { "id": "chak-chak", "name": "Чак-чак", "price": 150, "weight": "80 г", "desc": "", "img": null },
+        { "id": "medovik", "name": "Медовик", "price": 150, "weight": "80 г", "desc": "", "img": null }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Напитки",
+      "items": [
+        { "id": "kompot", "name": "Компот из сухофруктов", "price": 90, "weight": "0,5 л", "desc": "", "img": null },
+        { "id": "cola", "name": "Кока-кола", "price": 135, "weight": "0,5 л", "desc": "", "img": "dish-cola", "pos": "34% 62%" }
+      ]
+    }
+  ]
+}
