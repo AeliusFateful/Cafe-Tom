@@ -155,7 +155,7 @@
       li.className = 'line-item';
       li.dataset.id = id;
       li.innerHTML = `
-        <span class="line-item__plate">${d.img ? `<img src="${d.img}" alt="" width="52" height="52" style="object-position:${d.pos || '50% 50%'}">` : ''}</span>
+        <span class="line-item__plate">${d.thumb ? `<img src="${d.thumb}" alt="" width="52" height="52" style="object-position:${d.pos || '50% 50%'}">` : ''}</span>
         <div><p class="line-item__name"></p><p class="line-item__sum">${rub(d.price * qty)}</p></div>
         <div class="stepper"><button type="button" data-step="-1" aria-label="Убрать одну порцию"><span aria-hidden="true">−</span></button><output aria-live="off">${qty}</output><button type="button" data-step="1" aria-label="Добавить ещё порцию"><span aria-hidden="true">+</span></button></div>`;
       $('.line-item__name', li).textContent = d.name;
@@ -201,6 +201,31 @@
   $('#table-clear').addEventListener('click', () => { state.clear(); render(); });
   dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
   render();
+
+  /* Карта грузится только по нажатию: экономит трафик на телефоне */
+  const mapBtn = $('.map-load');
+  if (mapBtn) {
+    mapBtn.addEventListener('click', () => {
+      const frame = Object.assign(document.createElement('iframe'), { title: 'Карта: кафе «Томь», улица 40 лет Октября, 1', src: mapBtn.dataset.src });
+      mapBtn.replaceWith(frame);
+    });
+  }
+
+  /* Бургер-меню на телефоне */
+  const nav = $('.nav');
+  const burger = $('#burger');
+  if (nav && burger) {
+    const setNav = (open) => {
+      nav.classList.toggle('is-open', open);
+      document.documentElement.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Закрыть меню сайта' : 'Открыть меню сайта');
+    };
+    burger.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
+    $$('.nav__links a').forEach((a) => a.addEventListener('click', () => setNav(false)));
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setNav(false); burger.focus(); } });
+    matchMedia('(min-width: 761px)').addEventListener('change', (e) => { if (e.matches) setNav(false); });
+  }
 
   /* Банкеты: вкладки с фотографиями зала */
   const tabs = $$('.tabs [role="tab"]');
