@@ -109,7 +109,7 @@ button { cursor: pointer; }
 .brand img { width: 44px; height: 44px; border-radius: 50%; }
 .nav__links { display: flex; gap: clamp(1rem, 2.4vw, 2.25rem); margin-inline: auto 0; }
 .nav__links a { font-weight: 600; text-decoration: none; padding: 0.5rem 0; }
-@media (hover: hover) and (pointer: fine) { .nav__links a:hover { text-decoration: underline; text-underline-offset: 0.3em; text-decoration-thickness: 0.07em; } }
+.nav__sheet, .burger { display: none; }
 
 /* Тарелка: один мотив во всех масштабах. Кайма, золотое кольцо, фото в круге */
 .plate { position: relative; display: block; width: 100%; aspect-ratio: 1; border-radius: 50%; --rim: var(--accent); --ring: var(--gold); }
@@ -121,8 +121,8 @@ button { cursor: pointer; }
 .plate--map .plate__ring { display: none; }
 .plate--map iframe { width: 100%; height: 100%; border: 0; filter: saturate(0.85); }
 .plate--map .plate__photo { display: grid; place-items: center; }
-.plate--map .plate__photo::before { content: 'Карта'; position: absolute; font: 700 var(--step-lead)/1 var(--display); letter-spacing: -0.02em; color: var(--deep); }
-.plate--map iframe { position: relative; z-index: 1; background: transparent; }
+.map-load { width: 100%; height: 100%; border: 0; background: var(--pale); color: var(--deep); font: 700 var(--step-lead)/1.1 var(--display); letter-spacing: -0.02em; text-align: center; padding: 1rem; text-wrap: balance; transition: transform var(--t-press) var(--ease-out); }
+.map-load:active { transform: scale(0.97); }
 
 /* 1. Главный экран */
 .hero {
@@ -170,7 +170,6 @@ button { cursor: pointer; }
 .menu__index a.is-active::before { content: ''; flex: none; width: 0.6rem; height: 0.6rem; margin-right: 0.15rem; align-self: center; border-radius: 50%; background: var(--accent); }
 .menu__index a.is-active { justify-content: flex-start; }
 .menu__index a.is-active span { margin-left: auto; }
-@media (hover: hover) and (pointer: fine) { .menu__index a:hover { color: var(--ink); } }
 
 .menu__preview { display: grid; gap: 1rem; justify-items: start; }
 .menu__preview .plate { width: min(100%, 22rem); }
@@ -220,11 +219,6 @@ button { cursor: pointer; }
 }
 .dish__add:active { transform: scale(0.92); }
 .dish.is-added .dish__add { background: var(--accent); color: var(--accent-ink); }
-@media (hover: hover) and (pointer: fine) {
-  .dish__add:hover { background: var(--accent); color: var(--accent-ink); }
-  .dishes:has(.dish:hover, .dish:focus-within) .dish:not(:hover, :focus-within) { opacity: 0.55; }
-  .dish { transition: opacity var(--t-hover) ease; }
-}
 
 /* 4. Банкеты: полоса, делящая страницу пополам */
 .showcase {
@@ -253,6 +247,7 @@ button { cursor: pointer; }
 .stats__title { grid-column: 7 / 13; grid-row: 1; align-self: start; }
 .stats__tiles { display: contents; }
 .tile { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(1rem, 2vw, 1.75rem); grid-row: 1; border-top-right-radius: min(55%, 22rem); }
+.tile__figure > span { white-space: nowrap; }
 .tile__figure { font: 700 var(--step-display)/0.95 var(--display); letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
 .tile__caption { font-size: var(--step-lead); line-height: 1.2; max-width: 16ch; }
 .tile--accent { grid-column: 1 / 7; height: max(68vh, 26rem); background: var(--accent); color: var(--accent-ink); }
@@ -283,7 +278,7 @@ button { cursor: pointer; }
 .coupon__text::before, .coupon__text::after { content: ''; position: absolute; right: -16.5px; width: 28px; height: 28px; border-radius: 50%; background: var(--surface); }
 .coupon__text::before { top: -14px; }
 .coupon__text::after { bottom: -14px; }
-.coupon__title { font: 700 var(--step-head)/1 var(--display); letter-spacing: -0.03em; text-wrap: balance; }
+.coupon__title { font: 700 var(--step-head)/1 var(--display); letter-spacing: -0.03em; text-wrap: balance; overflow-wrap: anywhere; }
 .coupon__fields { padding: clamp(1.5rem, 3.4vw, 3rem); display: grid; gap: 0.65rem; align-content: center; }
 .field input {
   width: 100%; min-height: 56px; padding: 0 1.5rem; border: 0; border-radius: 999px;
@@ -373,9 +368,6 @@ button { cursor: pointer; }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
   .js .dish { opacity: 0; transform: translateY(16px); transition: opacity 600ms var(--ease-out), transform 800ms var(--ease-expo); transition-delay: calc(var(--i, 0) * 70ms); }
   .js .dish.is-in { opacity: 1; transform: none; }
-  @media (hover: hover) and (pointer: fine) {
-    .js .dishes:has(.dish:hover, .dish:focus-within) .dish.is-in:not(:hover, :focus-within) { opacity: 0.55; }
-  }
 
   @supports (animation-timeline: view()) {
     .hero { view-timeline-name: --hero; }
@@ -404,6 +396,17 @@ button { cursor: pointer; }
   .js .tile.is-in .tile__figure > span { transform: none; }
 }
 
+.contacts, .footer { content-visibility: auto; contain-intrinsic-size: auto 1200px; }
+
+/* На телефоне тарелки проявляются плавно, без перерисовки обрезки */
+@media (prefers-reduced-motion: no-preference) and (max-width: 760px) {
+  .js [data-open]:not(.plate--hero), .js [data-open]:not(.plate--hero).is-in { clip-path: none; }
+  .js [data-open]:not(.plate--hero) { opacity: 0; transition: opacity 600ms ease; }
+  .js [data-open]:not(.plate--hero).is-in { opacity: 1; }
+  .js .plate--hero[data-open] { clip-path: none; opacity: 0; animation: load-fade 700ms ease 100ms forwards; }
+}
+@keyframes load-fade { to { opacity: 1; } }
+
 /* Планшет и телефон: вторая композиция */
 @media (max-width: 1100px) {
   .menu__layout { grid-template-columns: minmax(0, 1fr); }
@@ -427,38 +430,70 @@ button { cursor: pointer; }
   .showcase { grid-template-columns: minmax(0, 1fr); row-gap: 2rem; min-height: 0; }
   .plate--showcase { width: min(100%, 30rem); }
   .showcase__copy { min-height: 0; max-width: none; gap: 2rem; }
-  .stats { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); row-gap: 3.25rem; column-gap: 8px; }
+  .stats { grid-template-columns: minmax(0, 1.06fr) minmax(0, 1fr); row-gap: 3.25rem; column-gap: 8px; }
   .stats__title { grid-column: 1 / -1; grid-row: auto; margin-bottom: 1.25rem; order: -1; }
   .tile { grid-row: auto; margin-top: 0; }
   .tile--accent { grid-column: 1 / -1; height: auto; min-height: 56vw; border-top-right-radius: 46%; }
   .tile--deep { grid-column: 1 / 2; height: 52vw; min-height: 11rem; margin-top: 0; }
   .tile--gold { grid-column: 2 / 3; height: 52vw; min-height: 11rem; margin-top: 2rem; }
   .tile--accent .tile__figure { font-size: clamp(4rem, 22vw, 8rem); }
-  .tile--deep .tile__figure, .tile--gold .tile__figure { font-size: clamp(1.75rem, 8.2vw, 3.5rem); }
+  .tile--deep .tile__figure, .tile--gold .tile__figure { font-size: clamp(1.75rem, 7.2vw, 3.5rem); }
+  .tile .rub { display: block; }
   .tile__caption { font-size: var(--step-body); max-width: 18ch; }
   .dishes { grid-template-columns: minmax(0, 1fr); row-gap: 2rem; }
   .contacts__find { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; }
-  .contacts__info, .contacts__pictures { grid-column: 1; }
-  .contacts__pictures { max-width: 34rem; width: 100%; }
-  .footer__links { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .footer__contact { grid-column: 1 / -1; }
-}
-@media (max-width: 420px) {
-  .menu__index { gap: 0 0.7rem; }
-}
-@media (max-width: 760px) {
-  .nav__call { display: none; }
-  .nav { gap: 1rem; }
-  .brand { font-size: 1.375rem; }
-  .brand img { width: 40px; height: 40px; }
-  .dishes { grid-template-columns: minmax(0, 1fr); row-gap: 1.75rem; }
-  .dish { --bullet: 60px; grid-template-columns: var(--bullet) minmax(0, 1fr); }
-  .dish__side { grid-column: 2; justify-content: space-between; margin-top: 0.5rem; }
+  .contacts__info, .contacts__pictures { grid-column: 1; margin-inline: auto; width: 100%; }
+  .contacts__info { max-width: 40rem; }
+  .contacts__pictures { max-width: 36rem; aspect-ratio: auto; display: grid; justify-items: center; gap: 2.5rem; }
+  .plate--facade, .plate--map { position: relative; inset: auto; }
+  .plate--facade { width: min(100%, 34rem); }
+  .plate--map { width: min(88%, 28rem); }
   .coupon { grid-template-columns: minmax(0, 1fr); }
   .coupon__text { border-right: 0; border-bottom: 5px dotted var(--surface); }
   .coupon__text::before, .coupon__text::after { top: auto; bottom: -16.5px; right: auto; }
   .coupon__text::before { left: -14px; }
   .coupon__text::after { right: -14px; left: auto; }
+  .footer__links { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__contact { grid-column: 1 / -1; }
+}
+@media (max-width: 420px) {
+  .menu__index { gap: 0 0.7rem; }
+  .coupon__title { font-size: clamp(1.5rem, 8.4vw, 2.25rem); }
+  .coupon__text, .coupon__fields { padding: 1.25rem; }
+  .stats { grid-template-columns: minmax(0, 1fr); row-gap: 3rem; }
+  .tile--deep, .tile--gold { grid-column: 1; height: auto; min-height: 10rem; margin-top: 0; gap: 2.5rem; }
+  .tile--deep { width: 84%; }
+  .tile--gold { width: 92%; justify-self: end; }
+  .tile--deep .tile__figure, .tile--gold .tile__figure { font-size: var(--step-head); }
+  .tile .rub { display: inline; }
+  .tile__caption { max-width: 22ch; }
+}
+@media (max-width: 760px) {
+  html { scroll-padding-top: 5rem; }
+  .nav { position: sticky; top: 0; z-index: 60; min-height: 64px; background: var(--bg); gap: 1rem; }
+  .nav__call { display: none; }
+  .brand { position: relative; z-index: 62; }
+  .burger { display: block; position: relative; z-index: 62; flex: none; width: 48px; height: 48px; margin-left: auto; border: 0; border-radius: 50%; background: var(--surface); transition: transform var(--t-press) var(--ease-out); }
+  .burger:active { transform: scale(0.92); }
+  .burger span { position: absolute; left: 14px; right: 14px; height: 3px; border-radius: 3px; background: var(--ink); transition: transform var(--t-ui) var(--ease-out), opacity var(--t-hover) ease; }
+  .burger span:nth-child(1) { top: 16px; }
+  .burger span:nth-child(2) { top: 22.5px; }
+  .burger span:nth-child(3) { top: 29px; }
+  .nav.is-open .burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav.is-open .burger span:nth-child(2) { opacity: 0; }
+  .nav.is-open .burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .nav__links { position: fixed; inset: 0; z-index: 61; margin: 0; padding: 6rem var(--margin) 2rem; display: flex; flex-direction: column; justify-content: center; gap: 0.35rem; background: var(--bg); opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity var(--t-ui) ease, transform 300ms var(--ease-out), visibility 0s linear 300ms; }
+  .nav.is-open .nav__links { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  .nav__links a { padding: 0.55rem 0; font: 700 var(--step-head)/1.1 var(--display); letter-spacing: -0.03em; }
+  .nav__links .nav__sheet { display: block; font-size: var(--step-lead); color: var(--accent); }
+  .nav__links .nav__sheet:first-of-type { margin-top: 1.5rem; }
+  html.nav-open { overflow: hidden; }
+  .menu__rail { top: 64px; }
+  .brand { font-size: 1.375rem; }
+  .brand img { width: 40px; height: 40px; }
+  .dishes { grid-template-columns: minmax(0, 1fr); row-gap: 1.75rem; }
+  .dish { --bullet: 60px; grid-template-columns: var(--bullet) minmax(0, 1fr); }
+  .dish__side { grid-column: 2; justify-content: space-between; margin-top: 0.5rem; }
   .showcase__actions { grid-template-columns: minmax(0, 1fr); }
   .mark--wide { display: none; }
   .mark--letters { display: block; }
