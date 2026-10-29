@@ -25,10 +25,10 @@ const list = menu.categories
     const items = c.items
       .map((d, i) => {
         const img = d.img
-          ? `<img src="img/${d.img}.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"${d.pos ? ` style="object-position:${d.pos}"` : ''}>`
+          ? `<img src="img/t/${d.img}.jpg" alt="" width="72" height="72" loading="lazy" decoding="async"${d.pos ? ` style="object-position:${d.pos}"` : ''}>`
           : '';
         const hasDesc = d.desc && d.desc.trim();
-        return `<li class="dish" data-id="${d.id}" data-name="${esc(d.name)}" data-price="${d.price}" data-weight="${esc(nb(d.weight))}"${d.img ? ` data-img="img/${d.img}.jpg"` : ''}${d.pos ? ` data-pos="${d.pos}"` : ''} style="--i:${Math.min(i, 5)}">
+        return `<li class="dish" data-id="${d.id}" data-name="${esc(d.name)}" data-price="${d.price}" data-weight="${esc(nb(d.weight))}"${d.img ? ` data-img="img/${d.img}.jpg" data-thumb="img/t/${d.img}.jpg"` : ''}${d.pos ? ` data-pos="${d.pos}"` : ''} style="--i:${Math.min(i, 5)}">
             <span class="dish__plate${d.img ? '' : ' is-empty'}" aria-hidden="true">${img}</span>
             <div class="dish__body">
               <p class="dish__name">${esc(d.name)}</p>
