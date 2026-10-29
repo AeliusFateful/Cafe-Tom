@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кафе «Томь»: узбекская кухня в Кемерово, меню и цены</title>
+<meta name="description" content="Кафе узбекской халяльной кухни на улице 40 лет Октября, 1 в Кемерово: плов, лагман, манты, самса. Меню с ценами, банкеты на 50 мест, заказ навынос. Ежедневно с 9:00 до 22:00.">
+<meta name="theme-color" content="#f4f9f8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Кафе «Томь»: узбекская кухня в Кемерово">
+<meta property="og:description" content="Плов, лагман, манты и самса. Халяль, средний чек 350–400 ₽, банкеты на 50 мест.">
+<meta property="og:image" content="img/hero-lagman-kurica.jpg">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preload" href="fonts/jost-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Томь",
+  "image": "img/hero-lagman-kurica.jpg",
+  "servesCuisine": ["Узбекская", "Халяль"],
+  "priceRange": "350–400 ₽",
+  "telephone": "+7 905 995-92-35",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "улица 40 лет Октября, 1",
+    "addressLocality": "Кемерово",
+    "postalCode": "650001",
+    "addressCountry": "RU"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 55.391964, "longitude": 85.998799 },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "09:00",
+    "closes": "22:00"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#menu">К меню</a>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top" aria-label="Томь, на главную">
+    <img src="img/logo.png" alt="" width="44" height="44">
+    <span>Томь</span>
+  </a>
+  <nav class="nav__links" aria-label="Разделы сайта">
+    <a href="#menu">Меню</a>
+    <a href="#banquets">Банкеты</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <a class="button button--small nav__call" href="tel:+79059959235">Позвонить</a>
+</header>
+
+<main>
+  <!-- 1. Главный экран: огромная тарелка -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <h1 class="display lines" id="hero-title">
+        <span class="line"><span data-line style="--i:0">Узбекская кухня</span></span>
+        <span class="line"><span data-line style="--i:1">в Кемерово</span></span>
+      </h1>
+      <p class="lead" data-load style="--d:420ms">Кафе «Томь» на 40&nbsp;лет Октября,&nbsp;1: плов, лагман, манты и самса. Халяль, ежедневно с&nbsp;9 до&nbsp;22.</p>
+      <p class="hero__actions" data-load style="--d:520ms">
+        <a class="button" href="#menu">Смотреть меню</a>
+        <a class="link" href="#book">Забронировать стол</a>
+      </p>
+    </div>
+    <figure class="plate plate--hero" data-open>
+      <span class="plate__rim" aria-hidden="true"></span>
+      <span class="plate__ring" aria-hidden="true"></span>
+      <span class="plate__photo">
+        <img src="img/hero-lagman-kurica.jpg" alt="Жареный лагман с курицей и кунжутом на узбекской тарелке с чёрно-белым орнаментом" width="900" height="1200" fetchpriority="high">
+      </span>
+    </figure>
+  </section>
+
+  <!-- 2. О кафе -->
+  <section class="intro" aria-labelledby="intro-title">
+    <h2 class="head" id="intro-title" data-reveal>О кафе</h2>
+    <p class="statement" data-reveal>
+      <span class="nw">Плов,<span class="thumb" aria-hidden="true"><img src="img/dish-plov.jpg" alt="" width="120" height="120" loading="lazy" style="object-position:28% 50%"></span></span>
+      <span class="nw">лагман<span class="thumb" aria-hidden="true"><img src="img/dish-lagman-zharenyy.jpg" alt="" width="120" height="120" loading="lazy"></span></span>
+      <span class="nw">и&nbsp;манты<span class="thumb" aria-hidden="true"><img src="img/dish-manty.jpg" alt="" width="120" height="120" loading="lazy"></span></span>
+      готовим каждый день. Узбекская кухня, халяль. Ждём вас с&nbsp;9:00 до&nbsp;22:00.
+    </p>
+  </section>
+
+  <!-- 3. Меню -->
+  <section class="menu" id="menu" aria-labelledby="menu-title">
+    <header class="menu__head">
+      <h2 class="head" id="menu-title" data-reveal>Меню</h2>
+      <p class="menu__note" data-reveal>{{MENU_COUNT}}&nbsp;блюд. Нажмите «+», чтобы собрать стол для заказа навынос.</p>
+    </header>
+    <div class="menu__layout">
+      <aside class="menu__rail">
+        <nav class="menu__index" aria-label="Разделы меню">
+          <!--MENU_INDEX-->
+        </nav>
+        <figure class="menu__preview" aria-hidden="true">
+          <span class="plate plate--preview">
+            <span class="plate__rim"></span>
+            <span class="plate__ring"></span>
+            <span class="plate__photo">
+              <img alt="" width="400" height="400">
+              <span class="plate__label"></span>
+            </span>
+          </span>
+          <figcaption><b data-p="name"></b><span data-p="meta"></span></figcaption>
+        </figure>
+      </aside>
+      <div class="menu__list">
+      <!--MENU_LIST-->
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Банкеты (полоса, делящая страницу пополам) -->
+  <section class="showcase" id="banquets" aria-labelledby="banquets-title">
+    <div class="showcase__media">
+      <div class="plate plate--showcase" data-open>
+        <span class="plate__rim" aria-hidden="true"></span>
+        <span class="plate__ring" aria-hidden="true"></span>
+        <span class="plate__photo">
+          <img class="is-on" id="shot-zal" src="img/hall-zal.jpg" alt="Банкетный стол в зале: белая скатерть, закуски, фрукты, синие стулья и бежевый диван" width="825" height="1100">
+          <img id="shot-stol" src="img/hall-stol.jpg" alt="Накрытый стол: жареная курица, фрукты, нарезки, бокалы и сложенные салфетки" width="1100" height="825">
+          <img id="shot-trays" src="img/dish-lyulya.jpg" alt="Деревянные подносы с курицей, картофелем, люля-кебабом и запечёнными овощами" width="1200" height="663">
+        </span>
+      </div>
+    </div>
+    <div class="showcase__copy">
+      <div class="tabs" role="tablist" aria-label="Фотографии зала">
+        <button type="button" role="tab" id="tab-zal" aria-selected="true" aria-controls="shot-zal">Зал</button>
+        <button type="button" role="tab" id="tab-stol" aria-selected="false" aria-controls="shot-stol" tabindex="-1">Стол</button>
+        <button type="button" role="tab" id="tab-trays" aria-selected="false" aria-controls="shot-trays" tabindex="-1">Подносы</button>
+      </div>
+      <div class="showcase__text">
+        <h2 class="head" id="banquets-title" data-reveal>Банкеты на 50 мест</h2>
+        <p class="showcase__lead" data-reveal>Проводим банкеты в зале на 50 мест. Дату, меню и число гостей обсудим по телефону или в WhatsApp.</p>
+      </div>
+      <div class="showcase__actions">
+        <a class="button button--wide button--light" href="tel:+79059959235">Позвонить</a>
+        <a class="button button--wide button--ghost" href="https://wa.me/79059959235?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B1%D0%B0%D0%BD%D0%BA%D0%B5%D1%82" target="_blank" rel="noopener">Написать</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Цифры -->
+  <section class="stats" aria-labelledby="stats-title">
+    <h2 class="head stats__title" id="stats-title" data-reveal>Томь в цифрах</h2>
+    <ul class="stats__tiles">
+      <li class="tile tile--accent" data-reveal>
+        <p class="tile__figure"><span>4,9</span></p>
+        <p class="tile__caption">оценка кафе в 2ГИС по 227 оценкам</p>
+      </li>
+      <li class="tile tile--deep" data-reveal style="--i:1">
+        <p class="tile__figure"><span>до 50</span></p>
+        <p class="tile__caption">мест в зале</p>
+      </li>
+      <li class="tile tile--gold" data-reveal style="--i:2">
+        <p class="tile__figure"><span>350–400 ₽</span></p>
+        <p class="tile__caption">средний чек на человека</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 6. Контакты и бронь -->
+  <section class="contacts" id="contacts" aria-labelledby="contacts-title">
+    <div class="contacts__find">
+      <div class="contacts__info">
+        <h2 class="head" id="contacts-title" data-reveal>Как нас найти</h2>
+        <dl class="facts" data-reveal>
+          <div><dt>Адрес</dt><dd>Кемерово, улица 40&nbsp;лет Октября,&nbsp;1, 1&nbsp;этаж, Кировский район. Здание из красного кирпича, на окнах бирюзовый орнамент.</dd></div>
+          <div><dt>Часы работы</dt><dd>Ежедневно с&nbsp;9:00 до&nbsp;22:00</dd></div>
+          <div><dt>Телефон и WhatsApp</dt><dd><a class="link" href="tel:+79059959235">+7&nbsp;905&nbsp;995-92-35</a></dd></div>
+          <div><dt>Второй адрес</dt><dd>Бульвар Строителей,&nbsp;42&nbsp;к1, ежедневно с&nbsp;10:00 до&nbsp;23:00</dd></div>
+        </dl>
+        <p class="contacts__maps" data-reveal>
+          <a class="link" href="https://2gis.ru/kemerovo/firm/70000001087757868?m=85.998799%2C55.391964%2F20%2Fr%2F-0.19" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+          <a class="link" href="https://yandex.kz/maps/org/tom/225558233090/?ll=85.998363%2C55.392045&amp;z=17" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+        </p>
+        <p class="contacts__credit" data-reveal>Карта в круге: © участники <a class="link" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>. Фотографии блюд, фасада и зала предоставлены кафе.</p>
+      </div>
+      <div class="contacts__pictures">
+        <figure class="plate plate--facade" data-open>
+          <span class="plate__rim" aria-hidden="true"></span>
+          <span class="plate__ring" aria-hidden="true"></span>
+          <span class="plate__photo">
+            <img src="img/facade.jpg" alt="Вход в кафе «Томь»: красное кирпичное здание с вывеской и бирюзовым орнаментом на окнах" width="1100" height="825" style="object-position:30% 50%">
+          </span>
+        </figure>
+        <div class="plate plate--map" data-open>
+          <span class="plate__rim" aria-hidden="true"></span>
+          <span class="plate__photo">
+            <iframe title="Карта: кафе «Томь», улица 40 лет Октября, 1" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=85.9930%2C55.3890%2C86.0040%2C55.3950&amp;layer=mapnik&amp;marker=55.391964%2C85.998799"></iframe>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <form class="coupon" id="book" data-reveal novalidate>
+      <div class="coupon__text">
+        <h2 class="coupon__title">Забронировать стол</h2>
+        <p>Заявка откроется в WhatsApp, останется нажать «Отправить».</p>
+      </div>
+      <div class="coupon__fields">
+        <label class="field"><span class="sr-only">Ваше имя</span><input name="name" type="text" placeholder="Ваше имя" autocomplete="given-name" required></label>
+        <label class="field"><span class="sr-only">Телефон</span><input name="phone" type="tel" placeholder="Телефон" autocomplete="tel" inputmode="tel" required></label>
+        <label class="field"><span class="sr-only">Дата и время</span><input name="when" type="datetime-local" placeholder="Дата и время" required></label>
+        <label class="field"><span class="sr-only">Сколько гостей</span><input name="guests" type="number" min="1" max="50" inputmode="numeric" placeholder="Сколько гостей" required></label>
+        <button class="coupon__submit" type="submit">Забронировать в WhatsApp</button>
+        <p class="coupon__error" role="alert" hidden></p>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__mark" role="img" aria-label="Томь">
+    <svg class="mark mark--wide" viewBox="0 0 1400 300" aria-hidden="true" focusable="false">
+      <circle cx="150" cy="150" r="150" fill="var(--accent)"/>
+      <circle cx="419" cy="185" r="115" fill="var(--gold)"/>
+      <circle cx="683" cy="155" r="145" fill="var(--deep)"/>
+      <circle cx="927" cy="205" r="95" fill="var(--bg)"/>
+      <circle cx="1151" cy="175" r="125" fill="var(--surface)"/>
+      <circle cx="1340" cy="240" r="60" fill="var(--accent)"/>
+      <g font-family="Jost, sans-serif" font-weight="700" text-anchor="middle">
+        <text x="150" y="150" dy=".35em" font-size="190" fill="var(--bg)">Т</text>
+        <text x="419" y="185" dy=".35em" font-size="150" fill="var(--ink)">О</text>
+        <text x="683" y="155" dy=".35em" font-size="180" fill="var(--bg)">М</text>
+        <text x="927" y="205" dy=".35em" font-size="120" fill="var(--accent)">Ь</text>
+      </g>
+    </svg>
+    <svg class="mark mark--letters" viewBox="0 0 1022 300" aria-hidden="true" focusable="false">
+      <circle cx="150" cy="150" r="150" fill="var(--accent)"/>
+      <circle cx="419" cy="185" r="115" fill="var(--gold)"/>
+      <circle cx="683" cy="155" r="145" fill="var(--deep)"/>
+      <circle cx="927" cy="205" r="95" fill="var(--bg)"/>
+      <g font-family="Jost, sans-serif" font-weight="700" text-anchor="middle">
+        <text x="150" y="150" dy=".35em" font-size="190" fill="var(--bg)">Т</text>
+        <text x="419" y="185" dy=".35em" font-size="150" fill="var(--ink)">О</text>
+        <text x="683" y="155" dy=".35em" font-size="180" fill="var(--bg)">М</text>
+        <text x="927" y="205" dy=".35em" font-size="120" fill="var(--accent)">Ь</text>
+      </g>
+    </svg>
+  </div>
+  <div class="footer__cols">
+    <nav class="footer__links" aria-label="Ссылки внизу страницы">
+      <a href="#menu">Меню</a>
+      <a href="#banquets">Банкеты</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#book">Забронировать стол</a>
+    </nav>
+    <address class="footer__contact">
+      <p>Кемерово, улица 40&nbsp;лет Октября,&nbsp;1</p>
+      <p><a class="link" href="tel:+79059959235">+7&nbsp;905&nbsp;995-92-35</a>, ежедневно с&nbsp;9:00 до&nbsp;22:00</p>
+    </address>
+  </div>
+  <div class="footer__bar">
+    <p>© 2026 Кафе «Томь», Кемерово</p>
+    <a class="button button--small button--light" href="#top">Наверх</a>
+  </div>
+</footer>
+
+<!-- Стол: корзина для заказа навынос -->
+<button class="cart" id="cart-open" type="button" aria-haspopup="dialog" hidden>
+  <span class="cart__count" id="cart-count" aria-hidden="true">0</span>
+  <span class="cart__label">Стол<span class="sr-only">, блюд на столе: <span id="cart-sr">0</span></span></span>
+</button>
+
+<dialog class="table" id="table" aria-labelledby="table-title">
+  <div class="table__head">
+    <h2 class="table__title" id="table-title">Ваш стол</h2>
+    <button class="table__close" type="button" id="table-close" aria-label="Закрыть"><span aria-hidden="true">×</span></button>
+  </div>
+  <p class="table__empty" id="table-empty">Стол пока пуст. Нажмите «+» рядом с блюдом в меню.</p>
+  <ul class="table__lines" id="table-lines"></ul>
+  <div class="table__foot" id="table-foot" hidden>
+    <p class="table__total"><span>Итого</span><b id="table-total">0&nbsp;₽</b></p>
+    <a class="button button--wide" id="table-send" href="#" target="_blank" rel="noopener">Отправить заказ в WhatsApp</a>
+    <p class="table__hint">Заказ навынос: список блюд откроется в WhatsApp, время, к которому приготовить, уточните там же. Цены по меню на сайте.</p>
+    <p class="table__links">
+      <a class="link" href="tel:+79059959235">Позвонить</a>
+      <button class="link" type="button" id="table-clear">Очистить стол</button>
+    </p>
+  </div>
+</dialog>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
