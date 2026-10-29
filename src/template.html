@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/jost-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-lagman-kurica.jpg" imagesrcset="img/hero-lagman-kurica-640.jpg 640w, img/hero-lagman-kurica.jpg 900w" imagesizes="(max-width: 900px) 115vw, 70vw" fetchpriority="high">
 <link rel="stylesheet" href="css/styles.css">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -50,12 +51,15 @@
     <img src="img/logo.png" alt="" width="44" height="44">
     <span>Томь</span>
   </a>
-  <nav class="nav__links" aria-label="Разделы сайта">
+  <nav class="nav__links" id="nav-links" aria-label="Разделы сайта">
     <a href="#menu">Меню</a>
     <a href="#banquets">Банкеты</a>
     <a href="#contacts">Контакты</a>
+    <a class="nav__sheet" href="#book">Забронировать стол</a>
+    <a class="nav__sheet" href="tel:+79059959235">+7&nbsp;905&nbsp;995-92-35</a>
   </nav>
   <a class="button button--small nav__call" href="tel:+79059959235">Позвонить</a>
+  <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="nav-links" aria-label="Открыть меню сайта"><span></span><span></span><span></span></button>
 </header>
 
 <main>
@@ -76,7 +80,7 @@
       <span class="plate__rim" aria-hidden="true"></span>
       <span class="plate__ring" aria-hidden="true"></span>
       <span class="plate__photo">
-        <img src="img/hero-lagman-kurica.jpg" alt="Жареный лагман с курицей и кунжутом на узбекской тарелке с чёрно-белым орнаментом" width="900" height="1200" fetchpriority="high">
+        <img src="img/hero-lagman-kurica.jpg" srcset="img/hero-lagman-kurica-640.jpg 640w, img/hero-lagman-kurica.jpg 900w" sizes="(max-width: 900px) 115vw, 70vw" alt="Жареный лагман с курицей и кунжутом на узбекской тарелке с чёрно-белым орнаментом" width="900" height="1200" fetchpriority="high">
       </span>
     </figure>
   </section>
@@ -85,9 +89,9 @@
   <section class="intro" aria-labelledby="intro-title">
     <h2 class="head" id="intro-title" data-reveal>О кафе</h2>
     <p class="statement" data-reveal>
-      <span class="nw">Плов,<span class="thumb" aria-hidden="true"><img src="img/dish-plov.jpg" alt="" width="120" height="120" loading="lazy" style="object-position:28% 50%"></span></span>
-      <span class="nw">лагман<span class="thumb" aria-hidden="true"><img src="img/dish-lagman-zharenyy.jpg" alt="" width="120" height="120" loading="lazy"></span></span>
-      <span class="nw">и&nbsp;манты<span class="thumb" aria-hidden="true"><img src="img/dish-manty.jpg" alt="" width="120" height="120" loading="lazy"></span></span>
+      <span class="nw">Плов,<span class="thumb" aria-hidden="true"><img src="img/t/dish-plov.jpg" alt="" width="40" height="40" decoding="async" loading="lazy" style="object-position:28% 50%"></span></span>
+      <span class="nw">лагман<span class="thumb" aria-hidden="true"><img src="img/t/dish-lagman-zharenyy.jpg" alt="" width="40" height="40" decoding="async" loading="lazy"></span></span>
+      <span class="nw">и&nbsp;манты<span class="thumb" aria-hidden="true"><img src="img/t/dish-manty.jpg" alt="" width="40" height="40" decoding="async" loading="lazy"></span></span>
       готовим каждый день. Узбекская кухня, халяль. Ждём вас с&nbsp;9:00 до&nbsp;22:00.
     </p>
   </section>
@@ -128,9 +132,9 @@
         <span class="plate__rim" aria-hidden="true"></span>
         <span class="plate__ring" aria-hidden="true"></span>
         <span class="plate__photo">
-          <img class="is-on" id="shot-zal" src="img/hall-zal.jpg" alt="Банкетный стол в зале: белая скатерть, закуски, фрукты, синие стулья и бежевый диван" width="825" height="1100">
-          <img id="shot-stol" src="img/hall-stol.jpg" alt="Накрытый стол: жареная курица, фрукты, нарезки, бокалы и сложенные салфетки" width="1100" height="825">
-          <img id="shot-trays" src="img/dish-lyulya.jpg" alt="Деревянные подносы с курицей, картофелем, люля-кебабом и запечёнными овощами" width="1200" height="663">
+          <img class="is-on" id="shot-zal" src="img/hall-zal-600.jpg" srcset="img/hall-zal-600.jpg 600w, img/hall-zal.jpg 1000w" sizes="(max-width: 900px) 90vw, 40rem" alt="Банкетный стол в зале: белая скатерть, закуски, фрукты, синие стулья и бежевый диван" width="750" height="1000" loading="lazy" decoding="async">
+          <img id="shot-stol" src="img/hall-stol-600.jpg" srcset="img/hall-stol-600.jpg 600w, img/hall-stol.jpg 1000w" sizes="(max-width: 900px) 90vw, 40rem" alt="Накрытый стол: жареная курица, фрукты, нарезки, бокалы и сложенные салфетки" width="1000" height="750" loading="lazy" decoding="async">
+          <img id="shot-trays" src="img/dish-lyulya-600.jpg" srcset="img/dish-lyulya-600.jpg 600w, img/dish-lyulya.jpg 1000w" sizes="(max-width: 900px) 90vw, 40rem" alt="Деревянные подносы с курицей, картофелем, люля-кебабом и запечёнными овощами" width="1000" height="553" loading="lazy" decoding="async">
         </span>
       </div>
     </div>
@@ -164,7 +168,7 @@
         <p class="tile__caption">мест в зале</p>
       </li>
       <li class="tile tile--gold" data-reveal style="--i:2">
-        <p class="tile__figure"><span>350–400 ₽</span></p>
+        <p class="tile__figure"><span>350–400<span class="rub">₽</span></span></p>
         <p class="tile__caption">средний чек на человека</p>
       </li>
     </ul>
@@ -192,13 +196,13 @@
           <span class="plate__rim" aria-hidden="true"></span>
           <span class="plate__ring" aria-hidden="true"></span>
           <span class="plate__photo">
-            <img src="img/facade.jpg" alt="Вход в кафе «Томь»: красное кирпичное здание с вывеской и бирюзовым орнаментом на окнах" width="1100" height="825" style="object-position:30% 50%">
+            <img src="img/facade-600.jpg" srcset="img/facade-600.jpg 600w, img/facade.jpg 1000w" sizes="(max-width: 900px) 70vw, 35rem" alt="Вход в кафе «Томь»: красное кирпичное здание с вывеской и бирюзовым орнаментом на окнах" width="1000" height="750" style="object-position:30% 50%" loading="lazy" decoding="async">
           </span>
         </figure>
         <div class="plate plate--map" data-open>
           <span class="plate__rim" aria-hidden="true"></span>
           <span class="plate__photo">
-            <iframe title="Карта: кафе «Томь», улица 40 лет Октября, 1" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=85.9930%2C55.3890%2C86.0040%2C55.3950&amp;layer=mapnik&amp;marker=55.391964%2C85.998799"></iframe>
+            <button class="map-load" type="button" data-src="https://www.openstreetmap.org/export/embed.html?bbox=85.9930%2C55.3890%2C86.0040%2C55.3950&amp;layer=mapnik&amp;marker=55.391964%2C85.998799">Показать карту</button>
           </span>
         </div>
       </div>
